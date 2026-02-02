@@ -25,7 +25,7 @@ const Hero = () => {
 
           <Link
             href="/customize"
-            className="w-full sm:w-90 h-16 lg:h-18 bg-[#D5F334] rounded-[41px] text-[#0B0C1E] text-[20px] lg:text-[22px] font-ubuntu hover:bg-opacity-90 transition mb-12 lg:mb-17.5"
+            className="w-full sm:w-90 h-16 lg:h-18 bg-[#D5F334] rounded-[41px] text-[#0B0C1E] text-[20px] lg:text-[22px] font-ubuntu hover:bg-opacity-90 transition mb-12 lg:mb-17.5 flex items-center justify-center"
           >
             Customize Your QR
           </Link>
