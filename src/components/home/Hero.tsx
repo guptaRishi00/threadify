@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -22,9 +23,12 @@ const Hero = () => {
             One scan connects you to the owner safely and privately.
           </p>
 
-          <button className="w-full sm:w-90 h-16 lg:h-18 bg-[#D5F334] rounded-[41px] text-[#0B0C1E] text-[20px] lg:text-[22px] font-ubuntu hover:bg-opacity-90 transition mb-12 lg:mb-17.5">
+          <Link
+            href="/customize"
+            className="w-full sm:w-90 h-16 lg:h-18 bg-[#D5F334] rounded-[41px] text-[#0B0C1E] text-[20px] lg:text-[22px] font-ubuntu hover:bg-opacity-90 transition mb-12 lg:mb-17.5"
+          >
             Customize Your QR
-          </button>
+          </Link>
 
           <div className="flex flex-col items-center lg:items-start">
             <div className="flex items-center gap-3">

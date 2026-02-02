@@ -22,15 +22,15 @@ const faqData = [
 ];
 
 export default function Contact() {
-  const [openIndex, setOpenIndex] = useState<number | null>(1); // Defaulting to the second item open as in the image
+  const [openIndex, setOpenIndex] = useState<number | null>(1);
 
   return (
     <main className="min-h-screen bg-[#0B0C1E] pt-40 pb-20 px-6 font-ubuntu">
       {/* Get In Touch Section */}
-      <section className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 mb-32">
+      <section className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 my-32">
         {/* Left: Contact Form */}
-        <div className="flex flex-col gap-8">
-          <div className="space-y-2">
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-col items-start gap-4">
             <label className="text-[#D5F334] text-sm font-medium">Name</label>
             <input
               type="text"
@@ -39,7 +39,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="flex flex-col items-start gap-4">
             <label className="text-[#D5F334] text-sm font-medium">
               Enter Email
             </label>
@@ -50,7 +50,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="flex flex-col items-start gap-4">
             <label className="text-[#D5F334] text-sm font-medium">
               Describe
             </label>
@@ -121,7 +121,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-[1000px] mx-auto flex flex-col items-center">
+      <section className="max-w-250 mx-auto flex flex-col items-center">
         <div className="mb-6 rounded-full flex items-center justify-center p-[0.6px] bg-linear-to-r from-[#D5F334] to-[#121324]">
           <div className="bg-linear-to-r from-[#171829] to-[#121324] rounded-full px-6 py-2">
             <span className="font-light text-[14px] text-white tracking-wide">
