@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaPlay, FaStar } from "react-icons/fa6";
 
 const testimonials = [
@@ -10,7 +10,7 @@ const testimonials = [
     rating: 4.5,
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     review: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
     ],
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     rating: 5,
     videoUrl: "https://www.w3schools.com/html/movie.mp4",
     review: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Threadify has completely changed how I manage my workflow while traveling. The security is top-notch and the interface is incredibly intuitive.",
     ],
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     rating: 4,
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     review: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Quick, secure, and always reliable. I never have to worry about my connections anymore. Highly recommended for anyone on the go!",
     ],
   },
 ];
@@ -44,7 +44,7 @@ const Testimonials = () => {
     const index = Math.round(scrollLeft / offsetWidth);
     if (index !== activeIndex) {
       setActiveIndex(index);
-      setPlayIndex(null);
+      setPlayIndex(null); // Stop video when scrolling away
     }
   };
 
@@ -57,17 +57,19 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="w-full bg-[#0B0C1E] py-[100px] overflow-hidden">
-      <div className="text-center mb-[80px] px-6">
-        <h2 className="text-white text-[40px] md:text-[72px] font-bold font-ubuntu leading-tight">
+    <section className="w-full bg-[#0B0C1E] py-16 md:py-[100px] overflow-hidden">
+      {/* Header Section */}
+      <div className="text-center mb-10 md:mb-[80px] px-6">
+        <h2 className="text-white text-4xl md:text-6xl lg:text-[72px] font-bold font-ubuntu leading-[1.1]">
           Customers <br />
           <span className="text-[#D5F334]">Love Threadify</span>
         </h2>
-        <p className="text-white text-[18px] md:text-[24px] font-light mt-4">
-          Quick, secure, and always reliable - just what they needed.
+        <p className="text-white/80 text-lg md:text-[24px] font-light mt-4 max-w-2xl mx-auto">
+          Quick, secure, and always reliable — just what they needed.
         </p>
       </div>
 
+      {/* Carousel Container */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
@@ -75,17 +77,19 @@ const Testimonials = () => {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {testimonials.map((item, index) => (
-          <div key={index} className="min-w-full snap-center px-6">
-            <div className="max-w-[1300px] mx-auto">
+          <div key={index} className="min-w-full snap-center px-4 md:px-6">
+            <div className="max-w-[1200px] mx-auto">
               <div
                 className="
                   flex flex-col lg:flex-row
-                  rounded-[40px] lg:rounded-[100px]
+                  rounded-[32px] lg:rounded-[100px]
                   overflow-hidden
-                  min-h-[520px] lg:h-[600px]
+                  bg-[#D5F334]
+                  min-h-[500px]
                 "
               >
-                <div className="w-full lg:w-[45%] bg-white flex items-center justify-center min-h-[220px] relative">
+                {/* Video/Thumbnail Section */}
+                <div className="w-full lg:w-[45%] bg-white flex items-center justify-center aspect-video lg:aspect-auto relative min-h-[250px] lg:min-h-full">
                   {playIndex === index ? (
                     <video
                       src={item.videoUrl}
@@ -94,65 +98,69 @@ const Testimonials = () => {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <button
-                      onClick={() => setPlayIndex(index)}
-                      className="w-[80px] h-[80px] lg:w-[100px] lg:h-[100px]
-                        rounded-full bg-[#D9D9D9]
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                      {/* Optional: Add a poster image here */}
+                      <button
+                        onClick={() => setPlayIndex(index)}
+                        className="w-16 h-16 lg:w-[100px] lg:h-[100px]
+                        rounded-full bg-[#0B0C1E]/10 backdrop-blur-sm
                         flex items-center justify-center pl-1
-                        hover:scale-105 transition"
-                    >
-                      <FaPlay className="text-[#242020] text-[24px] lg:text-[30px]" />
-                    </button>
+                        hover:scale-110 transition-transform duration-300"
+                        aria-label="Play Video"
+                      >
+                        <FaPlay className="text-[#0B0C1E] text-xl lg:text-[30px]" />
+                      </button>
+                    </div>
                   )}
                 </div>
 
+                {/* Text Content Section */}
                 <div
                   className="
                     w-full lg:w-[55%]
-                    bg-[#D5F334]
-                    p-6 lg:p-[80px]
-                    grid grid-rows-[auto_auto_1fr]
+                    p-8 lg:p-[60px_80px]
+                    flex flex-col justify-center
                   "
                 >
-                  <div>
-                    <h3 className="text-[#0B0C1E] text-[28px] lg:text-[44px] font-bold mb-1">
+                  <div className="mb-6">
+                    <h3 className="text-[#0B0C1E] text-3xl lg:text-[44px] font-bold leading-tight">
                       {item.name}
                     </h3>
-                    <p className="text-[#0B0C1E] text-[18px] lg:text-[24px] mb-3">
+                    <p className="text-[#0B0C1E]/80 text-lg lg:text-[24px] font-medium">
                       {item.role}
                     </p>
 
-                    <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2 mt-4">
                       <div className="flex gap-1">
                         {[...Array(5)].map((_, i) => (
                           <FaStar
                             key={i}
-                            className={`text-[18px] ${
-                              i < Math.round(item.rating)
+                            className={`text-lg ${
+                              i < Math.floor(item.rating)
                                 ? "text-[#0B0C1E]"
-                                : "text-[#0B0C1E]/40"
+                                : "text-[#0B0C1E]/20"
                             }`}
                           />
                         ))}
                       </div>
-                      <span className="text-[#0B0C1E] text-[18px] font-medium">
+                      <span className="text-[#0B0C1E] text-lg font-bold ml-1">
                         {item.rating}
                       </span>
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {item.review.map((text, i) => (
                       <p
                         key={i}
                         className="
                           text-[#0B0C1E]
-                          text-[15px] lg:text-[18px]
+                          text-base lg:text-xl
                           leading-relaxed
-                          line-clamp-3 lg:line-clamp-none
+                          italic
                         "
                       >
-                        {text}
+                        "{text}"
                       </p>
                     ))}
                   </div>
@@ -163,13 +171,14 @@ const Testimonials = () => {
         ))}
       </div>
 
-      <div className="flex gap-4 mt-[60px] justify-center">
+      {/* Navigation Pagination */}
+      <div className="flex gap-3 mt-10 justify-center">
         {testimonials.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollToIndex(i)}
-            className={`h-3 rounded-full transition-all duration-300 ${
-              activeIndex === i ? "w-8 bg-[#D5F334]" : "w-3 bg-white/50"
+            className={`h-2.5 rounded-full transition-all duration-500 ${
+              activeIndex === i ? "w-10 bg-[#D5F334]" : "w-2.5 bg-white/30"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />

@@ -22,7 +22,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="bg-[#121432] w-72 h-[111vh] rounded-[40px] flex flex-col py-12 overflow-hidden font-ubuntu">
+    <aside className="bg-[#121432] w-72 h-[135vh] rounded-3xl flex flex-col py-12 overflow-hidden font-ubuntu">
       <div className="px-10 mb-16">
         <Link href="/">
           <Image
