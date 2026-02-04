@@ -16,9 +16,9 @@ export default function Home({}: Props) {
       {/* <TravelSmarter /> */}
       <LostBags />
       <JustWorks />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <Testimonials />
-      <WhyChoose />
+      {/* <WhyChoose /> */}
       <CtaSection />
     </main>
   );

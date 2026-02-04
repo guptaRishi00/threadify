@@ -1,6 +1,6 @@
 import { text } from "stream/consumers";
 
-export default function LostBags({}: any) {
+export default function LostBags({ }: any) {
   const items = [
     {
       text: "Put your name on what you can’t afford to lose",
@@ -14,7 +14,7 @@ export default function LostBags({}: any) {
   ];
 
   return (
-    <div className="w-full bg-[#0B0C1E] py-20 md:py-32 px-6 md:px-16 flex flex-col items-start gap-16">
+    <div className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 px-6 md:px-16 flex flex-col items-start gap-16">
       <div className="flex flex-col items-start gap-3">
         <p className="text-5xl font-bold">
           Lost bags? <br />{" "}

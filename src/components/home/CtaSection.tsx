@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CtaSection = () => {
   return (
-    <section className="w-full bg-[#D5F334] py-16 sm:py-20 lg:py-[100px] flex items-center justify-center">
+    <section className="w-full bg-[#D5F334] py-8 md:py-12 lg:py-16 flex items-center justify-center">
       <div className="max-w-[1440px] w-full px-4 sm:px-6 text-center flex flex-col items-center gap-6 sm:gap-8">
         <h2
           className="text-[#0B0C1E]

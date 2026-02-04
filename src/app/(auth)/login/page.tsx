@@ -23,7 +23,7 @@ export default function page({}: Props) {
 
             <div className="w-full max-w-95 flex flex-col gap-5">
               <div className="flex flex-col gap-2">
-                <p className="text-[#D5F334] font-medium text-sm ml-1">Email</p>
+                {/* <p className="text-[#D5F334] font-medium text-sm ml-1">Email</p> */}
                 <input
                   type="email"
                   placeholder="Enter your email address"
@@ -43,13 +43,13 @@ export default function page({}: Props) {
             </div>
 
             <div className="flex flex-wrap justify-center gap-3">
-              <button className="flex items-center gap-2 border border-[#D5F334] rounded-full px-5 py-2 text-sm text-[#D5F334] hover:bg-[#D5F334]/10 transition-all">
+              <button className="flex items-center cursor-pointer gap-2 border border-[#D5F334] rounded-full px-5 py-2 text-sm text-[#D5F334] hover:bg-[#D5F334]/10 transition-all">
                 <FaGoogle size={18} /> Google
               </button>
-              <button className="flex items-center gap-2 border border-[#D5F334] rounded-full px-5 py-2 text-sm text-[#D5F334] hover:bg-[#D5F334]/10 transition-all">
+              <button className="flex items-center cursor-pointer gap-2 border border-[#D5F334] rounded-full px-5 py-2 text-sm text-[#D5F334] hover:bg-[#D5F334]/10 transition-all">
                 <FaFacebook size={18} /> Facebook
               </button>
-              <button className="flex items-center gap-2 border border-[#D5F334] rounded-full px-5 py-2 text-sm text-[#D5F334] hover:bg-[#D5F334]/10 transition-all">
+              <button className="flex items-center cursor-pointer gap-2 border border-[#D5F334] rounded-full px-5 py-2 text-sm text-[#D5F334] hover:bg-[#D5F334]/10 transition-all">
                 <RiTwitterXLine size={18} /> Twitter
               </button>
             </div>

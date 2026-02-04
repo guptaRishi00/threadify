@@ -57,7 +57,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="w-full bg-[#0B0C1E] py-16 md:py-[100px] overflow-hidden">
+    <section className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 overflow-hidden">
       {/* Header Section */}
       <div className="text-center mb-10 md:mb-[80px] px-6">
         <h2 className="text-white text-4xl md:text-6xl lg:text-[72px] font-bold font-ubuntu leading-[1.1]">
@@ -135,11 +135,10 @@ const Testimonials = () => {
                         {[...Array(5)].map((_, i) => (
                           <FaStar
                             key={i}
-                            className={`text-lg ${
-                              i < Math.floor(item.rating)
-                                ? "text-[#0B0C1E]"
-                                : "text-[#0B0C1E]/20"
-                            }`}
+                            className={`text-lg ${i < Math.floor(item.rating)
+                              ? "text-[#0B0C1E]"
+                              : "text-[#0B0C1E]/20"
+                              }`}
                           />
                         ))}
                       </div>
@@ -177,9 +176,8 @@ const Testimonials = () => {
           <button
             key={i}
             onClick={() => scrollToIndex(i)}
-            className={`h-2.5 rounded-full transition-all duration-500 ${
-              activeIndex === i ? "w-10 bg-[#D5F334]" : "w-2.5 bg-white/30"
-            }`}
+            className={`h-2.5 rounded-full transition-all duration-500 ${activeIndex === i ? "w-10 bg-[#D5F334]" : "w-2.5 bg-white/30"
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}

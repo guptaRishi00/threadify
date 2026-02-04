@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {};
 
-export default function JustWorks({}: Props) {
+export default function JustWorks({ }: Props) {
   const items = [
     { text: "No ribbons. No hacks." },
     { text: "Seen first. Found fast." },
@@ -14,7 +14,7 @@ export default function JustWorks({}: Props) {
 
   return (
     // Scaled padding: py-16 on mobile, py-32 on desktop
-    <div className="w-full bg-[#0B0C1E] py-16 md:py-32 px-6 md:px-16 flex flex-col items-start gap-10">
+    <div className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 px-6 md:px-16 flex flex-col items-start gap-10">
       <div className="flex flex-col items-start gap-3">
         {/* Scaled text: text-3xl on mobile, text-5xl on desktop */}
         <p className="text-3xl md:text-5xl font-bold text-white leading-tight">

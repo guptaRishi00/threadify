@@ -6,13 +6,13 @@ const Hero = () => {
     <section className="relative w-full bg-[#0B0C1E] overflow-hidden h-auto flex items-center justify-center py-20 lg:py-62">
       <div className="relative w-full mx-auto h-auto px-6 md:px-14 flex flex-col lg:flex-row justify-center items-start">
         <div className="relative z-20 flex flex-col items-center lg:items-start text-center lg:text-left w-full gap-5">
-          <div className="hidden mb-6 rounded-full md:flex items-center justify-center p-[0.6px] bg-linear-to-r from-[#D5F334] to-[#121324]">
+          {/* <div className="hidden mb-6 rounded-full md:flex items-center justify-center p-[0.6px] bg-linear-to-r from-[#D5F334] to-[#121324]">
             <div className="bg-linear-to-r from-[#171829] to-[#121324] rounded-full px-6 py-2">
               <span className="font-ubuntu font-light text-[16px] text-white tracking-wide">
                 smart qr luggage tag
               </span>
             </div>
-          </div>
+          </div> */}
 
           <h1 className="mt-16 md:mt-0 w-full font-ubuntu font-bold uppercase text-white text-2xl sm:text-[56px] md:text-[70px] lg:text-[6.56rem] leading-[1.1] lg:leading-[1.05] mb-6">
             NEVER LOSE YOUR <br />
@@ -61,7 +61,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative mt-12 lg:mt-0 lg:absolute lg:right-10 lg:-top-8 z-10 w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="relative mt-12 lg:mt-0 lg:absolute lg:right-10 lg:-top-28 z-10 w-full lg:w-1/2 flex justify-center lg:justify-end">
           <Image
             src="/heroImage.svg"
             alt="Hero Image"
