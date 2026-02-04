@@ -26,47 +26,9 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-[#0B0C1E] pt-40 pb-20 px-6 font-ubuntu">
-      {/* Get In Touch Section */}
-      <section className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 my-32">
-        {/* Left: Contact Form */}
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col items-start gap-4">
-            <label className="text-[#D5F334] text-sm font-medium">Name</label>
-            <input
-              type="text"
-              placeholder="Enter your name first"
-              className="w-full h-14 bg-white rounded-full px-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none"
-            />
-          </div>
-
-          <div className="flex flex-col items-start gap-4">
-            <label className="text-[#D5F334] text-sm font-medium">
-              Enter Email
-            </label>
-            <input
-              type="email"
-              placeholder="Enter your email id"
-              className="w-full h-14 bg-white rounded-full px-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none"
-            />
-          </div>
-
-          <div className="flex flex-col items-start gap-4">
-            <label className="text-[#D5F334] text-sm font-medium">
-              Describe
-            </label>
-            <textarea
-              placeholder="Enter your email id"
-              className="w-full h-40 bg-white rounded-[30px] p-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none resize-none"
-            />
-          </div>
-
-          <button className="w-full h-14 bg-[#D5F334] rounded-full text-[#0B0C1E] font-bold text-lg hover:opacity-90 transition-opacity">
-            Submit
-          </button>
-        </div>
-
-        {/* Right: Info Content */}
-        <div className="flex flex-col justify-center">
+      <section className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 my-32">
+        {/* TEXT SECTION: Appears first on mobile, but moved to the right (last) on desktop */}
+        <div className="flex flex-col justify-center lg:order-last">
           <h1 className="text-white text-5xl lg:text-6xl font-bold mb-4">
             Get In <span className="text-[#D5F334]">Touch</span>
           </h1>
@@ -118,23 +80,60 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        {/* FORM SECTION: Appears second on mobile, but stays on the left (first) on desktop */}
+        <div className="flex flex-col gap-10 lg:order-first">
+          <div className="flex flex-col items-start gap-4">
+            <label className="text-[#D5F334] text-sm font-medium">Name</label>
+            <input
+              type="text"
+              placeholder="Enter your name first"
+              className="w-full h-14 bg-white rounded-full px-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none"
+            />
+          </div>
+
+          <div className="flex flex-col items-start gap-4">
+            <label className="text-[#D5F334] text-sm font-medium">
+              Enter Email
+            </label>
+            <input
+              type="email"
+              placeholder="Enter your email id"
+              className="w-full h-14 bg-white rounded-full px-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none"
+            />
+          </div>
+
+          <div className="flex flex-col items-start gap-4">
+            <label className="text-[#D5F334] text-sm font-medium">
+              Describe
+            </label>
+            <textarea
+              placeholder="How can we help?"
+              className="w-full h-40 bg-white rounded-[30px] p-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none resize-none"
+            />
+          </div>
+
+          <button className="w-full h-14 bg-[#D5F334] rounded-full text-[#0B0C1E] font-bold text-lg hover:opacity-90 transition-opacity">
+            Submit
+          </button>
+        </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-250 mx-auto flex flex-col items-center">
+      <section className="max-w-[1000px] mx-auto flex flex-col items-center">
         <div className="mb-6 rounded-full flex items-center justify-center p-[0.6px] bg-linear-to-r from-[#D5F334] to-[#121324]">
           <div className="bg-linear-to-r from-[#171829] to-[#121324] rounded-full px-6 py-2">
             <span className="font-light text-[14px] text-white tracking-wide">
-              Lorem ipsum dolor sit amet
+              Got Questions?
             </span>
           </div>
         </div>
 
         <h2 className="text-white text-5xl lg:text-7xl font-bold uppercase mb-4 text-center">
-          LOREM <span className="text-[#D5F334]">IPSUM SIT</span>
+          FREQUENTLY <span className="text-[#D5F334]">ASKED</span>
         </h2>
         <p className="text-white/70 text-center max-w-lg mb-16">
-          Lorem ipsum dolor sit amet, consecte turelit, sed do eiusmod tempor
+          Everything you need to know about keeping your gear safe.
         </p>
 
         <div className="w-full space-y-6">
@@ -146,8 +145,8 @@ export default function Contact() {
               style={{
                 background:
                   openIndex === index
-                    ? "linear-gradient(135deg, rgba(21, 22, 45, 1) 0%, rgba(213, 243, 52, 0.8) 100%)"
-                    : "linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(213, 243, 52, 0.4) 100%)",
+                    ? "linear-gradient(135deg, rgba(21, 22, 45, 1) 0%, rgba(213, 243, 52, 0.4) 100%)"
+                    : "rgba(255, 255, 255, 0.03)",
               }}
             >
               <div className="p-8 lg:p-10 flex items-center justify-between">
@@ -165,7 +164,7 @@ export default function Contact() {
 
               <div
                 className={`px-8 lg:px-10 overflow-hidden transition-all duration-500 ${
-                  openIndex === index ? "max-h-40 pb-10" : "max-h-0"
+                  openIndex === index ? "max-h-60 pb-10" : "max-h-0"
                 }`}
               >
                 <p className="text-white/80 text-lg leading-relaxed max-w-2xl">

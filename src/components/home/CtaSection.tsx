@@ -14,7 +14,7 @@ const CtaSection = () => {
 
         <p
           className="text-[#0B0C1E]
-            text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px]
+            text-[18px] sm:text-[16px] md:text-[20px] lg:text-xl
             font-light font-ubuntu max-w-[800px]"
         >
           Create your personalized QR tag and travel with peace of mind.

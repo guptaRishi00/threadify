@@ -34,8 +34,8 @@ export default function PricingHeroSection() {
       {/* Main Pricing Cards Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full  gap-8 px-2 md:px-10">
         {/* Starter Card */}
-        <div className="bg-gradient-to-r from-[#FFFFFF00] to-[#D5F334] rounded-3xl p-px w-full">
-          <div className="bg-gradient-to-r from-[#161729] to-[#111223] h-full rounded-[23px] p-8 md:p-16 flex flex-col gap-10">
+        <div className="bg-linear-to-r from-[#FFFFFF00] to-[#D5F334] rounded-3xl p-px w-full">
+          <div className="bg-linear-to-r from-[#161729] to-[#111223] h-full rounded-[23px] p-8 md:p-16 flex flex-col gap-10">
             <div className="space-y-4">
               <p className="text-2xl font-medium">Starter</p>
               <p className="text-white/60">
@@ -51,7 +51,7 @@ export default function PricingHeroSection() {
                   /month
                 </div>
               </div>
-              <button className="w-full md:w-fit border border-[#D5F334] bg-white/5 hover:bg-[#D5F334] hover:text-black transition-colors px-12 py-4 rounded-full font-medium">
+              <button className="cursor-pointer  w-full md:w-fit border border-[#D5F334] bg-white/5 hover:bg-[#D5F334] hover:text-black transition-colors px-12 py-4 rounded-full font-medium">
                 Get Started
               </button>
               <p className="text-lg md:text-xl font-light text-white/70">
@@ -69,7 +69,7 @@ export default function PricingHeroSection() {
                     alt="check"
                     width={24}
                     height={24}
-                    className="mt-1 flex-shrink-0"
+                    className="mt-1 shrink-0"
                   />
                   <p className="text-base md:text-lg font-light text-white/70">
                     {feature}
@@ -81,8 +81,8 @@ export default function PricingHeroSection() {
         </div>
 
         {/* Value Pack Card */}
-        <div className="bg-gradient-to-r from-[#FFFFFF00] to-[#D5F334] rounded-3xl p-px w-full">
-          <div className="bg-gradient-to-r from-[#161729] to-[#111223] h-full rounded-[23px] p-8 md:p-16 flex flex-col gap-10">
+        <div className="bg-linear-to-r from-[#FFFFFF00] to-[#D5F334] rounded-3xl p-px w-full">
+          <div className="bg-linear-to-r from-[#161729] to-[#111223] h-full rounded-[23px] p-8 md:p-16 flex flex-col gap-10">
             <div className="space-y-4">
               <p className="text-2xl font-medium">Value Pack</p>
               <p className="text-white/60">2 Smart Tags • 500 Shared Minutes</p>
@@ -96,7 +96,7 @@ export default function PricingHeroSection() {
                   /month
                 </div>
               </div>
-              <button className="w-full md:w-fit bg-[#D5F334] text-black hover:bg-opacity-90 transition-opacity px-12 py-4 rounded-full font-medium">
+              <button className="cursor-pointer w-full md:w-fit border border-[#D5F334] bg-white/5 hover:bg-[#D5F334] hover:text-black transition-colors px-12 py-4 rounded-full font-medium">
                 Get Started
               </button>
               <p className="text-lg md:text-xl font-light text-white/70">
@@ -113,7 +113,7 @@ export default function PricingHeroSection() {
                     alt="check"
                     width={24}
                     height={24}
-                    className="mt-1 flex-shrink-0"
+                    className="mt-1 shrink-0"
                   />
                   <p className="text-base md:text-lg font-light text-white/70">
                     {feature}
@@ -127,8 +127,8 @@ export default function PricingHeroSection() {
 
       {/* Bottom Leather Tag Bar */}
       <div className="w-full px-2 md:px-10 mt-8 mb-20">
-        <div className="bg-gradient-to-r from-[#FFFFFF00] to-[#D5F334] rounded-3xl p-px">
-          <div className="bg-gradient-to-r from-[#161729] to-[#111223] rounded-[23px] px-6 py-8 md:px-16 md:py-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+        <div className="bg-linear-to-r from-[#FFFFFF00] to-[#D5F334] rounded-3xl p-px">
+          <div className="bg-linear-to-r from-[#161729] to-[#111223] rounded-[23px] px-6 py-8 md:px-16 md:py-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
             <p className="text-3xl font-medium">Leather Tag</p>
 
             <div className="flex flex-col md:flex-row items-center gap-4">
@@ -141,7 +141,7 @@ export default function PricingHeroSection() {
 
             <div className="flex items-center gap-6">
               <p className="text-5xl md:text-6xl font-bold">₹150</p>
-              <div className="w-[68px] h-[36px] rounded-full border border-gray-500/50 flex items-center px-1.5 flex-shrink-0">
+              <div className="w-17 h-9 rounded-full border border-gray-500/50 flex items-center px-1.5 flex-shrink-0">
                 <div className="w-6 h-6 rounded-full bg-[#D5F334] shadow-[0_0_10px_rgba(213,243,52,0.4)]" />
               </div>
             </div>
