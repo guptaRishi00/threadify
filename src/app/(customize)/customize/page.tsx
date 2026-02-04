@@ -18,6 +18,9 @@ export default function page({}: Props) {
 
   const [innerBg, setInnerBg] = useState<string>("bg-black");
 
+  const [firstName, setFirstName] = useState<string>("Jack");
+  const [lastName, setLastName] = useState<string>("Williams");
+
   return (
     <div className="bg-[#121432] w-full min-h-screen mt-5 p-10 rounded-3xl flex flex-col">
       <div className="flex items-stretch justify-between flex-1 w-full">
@@ -53,13 +56,24 @@ export default function page({}: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-5 w-full px-8 border-x border-white/10 h-[70vh] overflow-y-auto scrollbar-hide">
+        <div className="flex flex-col items-start gap-5 w-full px-8 border-x border-white/10 h-[90vh] overflow-y-auto scrollbar-hide">
           {activeTab === "background" && <Designs onSelect={setInnerBg} />}
-          {activeTab === "text" && <Text />}
+          {activeTab === "text" && (
+            <Text
+              setFirstName={setFirstName}
+              setLastName={setLastName}
+              firstName={firstName}
+              lastName={lastName}
+            />
+          )}
           {activeTab === "qr" && <Qr />}
         </div>
         <div className="w-full px-10">
-          <QrCard innerBgClass={innerBg} />
+          <QrCard
+            innerBgClass={innerBg}
+            firstName={firstName}
+            lastName={lastName}
+          />
         </div>
       </div>
     </div>

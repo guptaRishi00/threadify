@@ -1,12 +1,14 @@
 import Image from "next/image";
-import React from "react";
+
 import { TbScan } from "react-icons/tb";
 
 type Props = {
   innerBgClass: string;
+  firstName: string;
+  lastName: string;
 };
 
-export default function QrCard({ innerBgClass }: Props) {
+export default function QrCard({ innerBgClass, firstName, lastName }: Props) {
   return (
     <div className="bg-[#D5F334] w-full h-full">
       {/* Replace 'bg-black' with the dynamic prop */}
@@ -35,8 +37,8 @@ export default function QrCard({ innerBgClass }: Props) {
 
       <div className="py-10 px-8 flex items-end justify-between">
         <div className="flex flex-col items-start">
-          <p className="text-3xl font-bold text-black">JACK</p>
-          <p className="text-3xl text-black">Williams</p>
+          <p className="text-3xl font-bold text-black">{firstName}</p>
+          <p className="text-3xl text-black">{lastName}</p>
         </div>
 
         <Image
