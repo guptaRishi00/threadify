@@ -25,21 +25,23 @@ export default function Designs({ onSelect }: Props) {
         Select Style
       </p>
 
-      {designs.map((design) => (
-        <div
-          key={design.id}
-          onClick={() => onSelect(design.class)}
-          className={`
-            w-full h-32 ${design.class} rounded-2xl shrink-0 
-            cursor-pointer border-2 border-white/5 
-            hover:border-[#D5F334] transition-all duration-300
-            relative group
-          `}
-        >
-          {/* Subtle hover indicator */}
-          <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity" />
-        </div>
-      ))}
+      <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:gap-5 w-full">
+        {designs.map((design) => (
+          <div
+            key={design.id}
+            onClick={() => onSelect(design.class)}
+            className={`
+              w-full h-20 lg:h-32 ${design.class} rounded-xl lg:rounded-2xl shrink-0 
+              cursor-pointer border-2 border-white/5 
+              hover:border-[#D5F334] transition-all duration-300
+              relative group
+            `}
+          >
+            {/* Subtle hover indicator */}
+            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 rounded-xl lg:rounded-2xl transition-opacity" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
