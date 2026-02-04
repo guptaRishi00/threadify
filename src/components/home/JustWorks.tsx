@@ -27,7 +27,7 @@ export default function JustWorks({}: Props) {
         {items.map((item, index) => (
           <div className="flex items-center gap-5 md:gap-8" key={index}>
             {/* Added flex-shrink-0 so the circle doesn't turn into an oval on small screens */}
-            <div className="w-5 h-5 md:w-10 md:h-10 rounded-full bg-gradient-to-r from-[#FFFFFF00] to-[#D5F334] flex-shrink-0" />
+            <div className="w-5 h-5 md:w-10 md:h-10 rounded-full bg-linear-to-r from-[#FFFFFF00] to-[#D5F334] shrink-0" />
             <p className="text-lg md:text-xl text-white">{item.text}</p>
           </div>
         ))}
