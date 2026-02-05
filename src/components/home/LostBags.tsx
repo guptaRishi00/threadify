@@ -12,8 +12,8 @@ export default function LostBags({}: any) {
   ];
 
   return (
-    <div className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 px-6 md:px-16 flex flex-col items-center gap-16">
-      <div className="flex flex-col items-center text-center gap-3">
+    <div className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 px-6 md:px-16 flex flex-col items-center lg:items-start gap-16">
+      <div className="flex flex-col lg:items-start text-center items-centerlg:text-left gap-3">
         <p className="lg:text-5xl text-4xl font-bold text-white">
           Lost bags? <br />
           <span className="text-[#D5F334]">Not your problem</span>

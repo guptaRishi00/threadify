@@ -13,7 +13,7 @@ import { TbScan } from "react-icons/tb";
 
 type Props = {};
 
-export default function page({ }: Props) {
+export default function page({}: Props) {
   const [activeTab, setActiveTab] = useState<string>("background");
 
   const [innerBg, setInnerBg] = useState<string>("bg-black");
@@ -26,8 +26,9 @@ export default function page({ }: Props) {
       {/* Mobile Tab Navigation - horizontal on mobile */}
       <div className="flex lg:hidden items-center justify-center gap-6 py-4 mb-4">
         <div
-          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${activeTab === "background" ? "text-[#D5F334]" : "text-white"
-            }`}
+          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${
+            activeTab === "background" ? "text-[#D5F334]" : "text-white"
+          }`}
           onClick={() => setActiveTab("background")}
         >
           <IoCopyOutline size={16} />
@@ -35,8 +36,9 @@ export default function page({ }: Props) {
         </div>
 
         <div
-          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${activeTab === "text" ? "text-[#D5F334]" : "text-white"
-            }`}
+          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${
+            activeTab === "text" ? "text-[#D5F334]" : "text-white"
+          }`}
           onClick={() => setActiveTab("text")}
         >
           <TbTextResize size={20} />
@@ -44,8 +46,9 @@ export default function page({ }: Props) {
         </div>
 
         <div
-          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${activeTab === "qr" ? "text-[#D5F334]" : "text-white"
-            }`}
+          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${
+            activeTab === "qr" ? "text-[#D5F334]" : "text-white"
+          }`}
           onClick={() => setActiveTab("qr")}
         >
           <TbQrcode size={20} />
@@ -53,12 +56,13 @@ export default function page({ }: Props) {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-stretch justify-between flex-1 w-full">
+      <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-0 lg:justify-between flex-1 w-full">
         {/* Desktop Tab Navigation - vertical, hidden on mobile */}
         <div className="hidden lg:flex flex-col justify-start items-center mr-5 gap-10 w-[25%]">
           <div
-            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${activeTab === "background" ? "text-[#D5F334]" : "text-white"
-              }`}
+            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${
+              activeTab === "background" ? "text-[#D5F334]" : "text-white"
+            }`}
             onClick={() => setActiveTab("background")}
           >
             <IoCopyOutline size={20} />
@@ -66,8 +70,9 @@ export default function page({ }: Props) {
           </div>
 
           <div
-            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${activeTab === "text" ? "text-[#D5F334]" : "text-white"
-              }`}
+            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${
+              activeTab === "text" ? "text-[#D5F334]" : "text-white"
+            }`}
             onClick={() => setActiveTab("text")}
           >
             <TbTextResize size={30} />
@@ -75,8 +80,9 @@ export default function page({ }: Props) {
           </div>
 
           <div
-            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${activeTab === "qr" ? "text-[#D5F334]" : "text-white"
-              }`}
+            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${
+              activeTab === "qr" ? "text-[#D5F334]" : "text-white"
+            }`}
             onClick={() => setActiveTab("qr")}
           >
             <TbQrcode size={30} />
@@ -85,7 +91,7 @@ export default function page({ }: Props) {
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-col items-start gap-5 w-full px-2 lg:px-8 lg:border-x lg:border-white/10 h-auto lg:h-[90vh] overflow-y-auto scrollbar-hide order-1 lg:order-none">
+        <div className="flex flex-col items-start gap-5 w-full px-2 lg:px-8 lg:border-x lg:border-white/10 h-auto lg:h-[90vh] overflow-y-auto scrollbar-hide order-1 lg:order-0">
           {activeTab === "background" && <Designs onSelect={setInnerBg} />}
           {activeTab === "text" && (
             <Text
@@ -99,7 +105,7 @@ export default function page({ }: Props) {
         </div>
 
         {/* QR Card Preview */}
-        <div className="w-full lg:px-10 order-2 lg:order-none mt-6 lg:mt-0">
+        <div className="w-full lg:px-10 order-2 lg:order-0  lg:mt-0">
           <QrCard
             innerBgClass={innerBg}
             firstName={firstName}
@@ -110,4 +116,3 @@ export default function page({ }: Props) {
     </div>
   );
 }
-

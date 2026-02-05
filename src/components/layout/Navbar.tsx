@@ -4,11 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation"; // 1. Import usePathname
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const pathname = usePathname(); // 2. Get current pathname
+
+  // 3. Automatically close the menu when the route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -32,7 +40,6 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Pricing", href: "/pricing" },
-    // { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -43,7 +50,6 @@ const Navbar = () => {
       }`}
     >
       <div className="w-full mx-auto px-6 md:px-14 h-30 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.svg"
@@ -54,7 +60,6 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Links - Consistent Spacing & Smaller Font */}
         <div className="hidden lg:flex items-center gap-17 w-full justify-center">
           {navLinks.map((link) => (
             <Link
@@ -67,7 +72,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Auth Buttons - Pill shaped like the image */}
         <div className="hidden md:flex items-center gap-6">
           <Link
             href="/login"
@@ -83,7 +87,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className="lg:hidden text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -92,7 +95,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-[#0B0C1E] border-t border-white/10 flex flex-col p-6 gap-6">
           {navLinks.map((link) => (

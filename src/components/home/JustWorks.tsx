@@ -13,8 +13,8 @@ export default function JustWorks({}: Props) {
   ];
 
   return (
-    <div className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 px-6 md:px-16 flex flex-col items-center justify-center gap-10">
-      <div className="flex flex-col items-center text-center gap-3">
+    <div className="w-full bg-[#0B0C1E] py-8 md:py-12 lg:py-16 px-6 md:px-16 flex flex-col items-center lg:items-start gap-10">
+      <div className="flex flex-col items-start text-left gap-3">
         <p className="text-3xl md:text-5xl font-bold text-white leading-tight">
           Why This? <br /> <span className="text-[#D5F334]">Just Works</span>
         </p>

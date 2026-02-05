@@ -25,7 +25,7 @@ export default function Contact() {
   const [openIndex, setOpenIndex] = useState<number | null>(1);
 
   return (
-    <main className="min-h-screen bg-[#0B0C1E] pt-40 pb-20 px-6 font-ubuntu">
+    <main className="min-h-screen bg-[#0B0C1E] pt-10 pb-20 px-6 font-ubuntu">
       <section className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 my-32">
         {/* TEXT SECTION: Appears first on mobile, but moved to the right (last) on desktop */}
         <div className="flex flex-col justify-center lg:order-last">

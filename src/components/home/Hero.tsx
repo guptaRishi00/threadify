@@ -11,7 +11,7 @@ const Hero = () => {
             <span className="text-[#D5F334]">LUGGAGE AGAIN</span>
           </h1>
 
-          <p className="font-ubuntu font-light text-md md:text-3xl lg:text-4xl leading-snug md:leading-9.5 text-white max-w-full lg:max-w-2xl mb-10">
+          <p className="font-ubuntu font-light text-md md:text-3xl lg:text-4xl leading-snug md:leading-9.5 text-white max-w-55 lg:max-w-2xl mb-10">
             One scan connects you to the owner safely and privately.
           </p>
 
