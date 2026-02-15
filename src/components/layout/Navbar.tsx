@@ -45,9 +45,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-[#0B0C1E] z-50 transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed top-0 left-0 w-full bg-[#0B0C1E] z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="w-full mx-auto px-6 md:px-14 h-30 flex items-center justify-between">
         <Link href="/" className="flex items-center">
@@ -74,16 +73,10 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-6">
           <Link
-            href="/login"
-            className="px-14 py-3 rounded-full border border-[#D5F334] text-[#D5F334] text-[16px] font-medium hover:bg-[#D5F334]/5 transition-all"
-          >
-            LogIn
-          </Link>
-          <Link
-            href="/signup"
+            href="/customize"
             className="px-14 py-3 rounded-full bg-[#D5F334] text-[#0B0C1E] text-[16px] font-bold hover:shadow-[0_0_20px_rgba(213,243,52,0.3)] transition-all"
           >
-            SignUp
+            Customize
           </Link>
         </div>
 
@@ -108,16 +101,10 @@ const Navbar = () => {
           ))}
           <div className="flex flex-col gap-4">
             <Link
-              href="/login"
-              className="text-[#D5F334] text-center py-3 border border-[#D5F334] rounded-full"
-            >
-              LogIn
-            </Link>
-            <Link
-              href="/signup"
+              href="/customize"
               className="bg-[#D5F334] text-[#0B0C1E] text-center py-3 rounded-full font-bold"
             >
-              SignUp
+              Customize
             </Link>
           </div>
         </div>

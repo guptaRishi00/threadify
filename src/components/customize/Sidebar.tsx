@@ -22,7 +22,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="bg-[#121432] w-72 h-[135vh] rounded-3xl flex flex-col py-12 overflow-hidden font-ubuntu">
+    <aside className="bg-[#121432] w-72 h-[140vh] rounded-3xl flex flex-col py-12 overflow-hidden font-ubuntu">
       <div className="px-10 mb-16">
         <Link href="/">
           <Image
@@ -51,10 +51,9 @@ export default function Sidebar() {
                 href={item.href}
                 className={`
                   flex items-center gap-4 py-4 px-10 transition-all duration-300 group
-                  ${
-                    isActive
-                      ? "bg-[#D5F334] text-black rounded-r-full mr-6"
-                      : "text-white hover:text-[#D5F334]"
+                  ${isActive
+                    ? "bg-[#D5F334] text-black rounded-r-full mr-6"
+                    : "text-white hover:text-[#D5F334]"
                   }
                 `}
               >
