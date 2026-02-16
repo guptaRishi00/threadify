@@ -2,16 +2,17 @@
 
 import ContactDetails from "@/components/customize/ContactDetails";
 import Designs from "@/components/customize/Designs";
-import Qr from "@/components/customize/Qr";
+
 import QrCard from "@/components/customize/QrCard";
 import Text from "@/components/customize/Text";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { toPng } from "html-to-image";
 import { IoCopyOutline } from "react-icons/io5";
 import { TbTextResize } from "react-icons/tb";
-import { TbQrcode } from "react-icons/tb";
-import { TbScan } from "react-icons/tb";
+
 import { MdOutlineContactPhone } from "react-icons/md";
+import { HiOutlineDownload } from "react-icons/hi";
 
 type Props = {};
 
@@ -26,6 +27,39 @@ export default function page({ }: Props) {
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [instagram, setInstagram] = useState<string>("");
+
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const isReady =
+    firstName.trim() !== "" &&
+    lastName.trim() !== "" &&
+    email.trim() !== "" &&
+    phone.trim() !== "" &&
+    instagram.trim() !== "";
+
+  // Build a readable text so scanning the QR shows all details clearly
+  const qrValue = [
+    `Name: ${firstName} ${lastName}`,
+    `Phone: ${phone}`,
+    `Email: ${email}`,
+    `Instagram: ${instagram}`,
+  ].join("\n");
+
+  const handleDownload = async () => {
+    if (!cardRef.current || !isReady) return;
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        cacheBust: true,
+        pixelRatio: 3,
+      });
+      const link = document.createElement("a");
+      link.download = `${firstName}-${lastName}-qr-card.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error("Failed to generate image:", err);
+    }
+  };
 
   return (
     <div className="bg-[#121432] w-full min-h-screen mt-5 p-4 lg:p-10 rounded-3xl flex flex-col">
@@ -49,14 +83,6 @@ export default function page({ }: Props) {
           <p className="text-[10px]">Text</p>
         </div>
 
-        <div
-          className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${activeTab === "qr" ? "text-[#D5F334]" : "text-white"
-            }`}
-          onClick={() => setActiveTab("qr")}
-        >
-          <TbQrcode size={20} />
-          <p className="text-[10px]">QR Generate</p>
-        </div>
 
         <div
           className={`flex items-center flex-col gap-2 cursor-pointer hover:text-[#D5F334] ${activeTab === "contact" ? "text-[#D5F334]" : "text-white"
@@ -89,14 +115,6 @@ export default function page({ }: Props) {
             <p className="text-xs">Text</p>
           </div>
 
-          <div
-            className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${activeTab === "qr" ? "text-[#D5F334]" : "text-white"
-              }`}
-            onClick={() => setActiveTab("qr")}
-          >
-            <TbQrcode size={30} />
-            <p className="text-xs">QR Generate</p>
-          </div>
 
           <div
             className={`flex items-center flex-col gap-3 cursor-pointer hover:text-[#D5F334] ${activeTab === "contact" ? "text-[#D5F334]" : "text-white"
@@ -119,7 +137,7 @@ export default function page({ }: Props) {
               lastName={lastName}
             />
           )}
-          {activeTab === "qr" && <Qr />}
+
           {activeTab === "contact" && (
             <ContactDetails
               email={email}
@@ -133,12 +151,25 @@ export default function page({ }: Props) {
         </div>
 
         {/* QR Card Preview */}
-        <div className="w-full lg:px-10 order-2 lg:order-0  lg:mt-0">
+        <div className="w-full lg:px-10 order-2 lg:order-0 lg:mt-0">
           <QrCard
+            ref={cardRef}
             innerBgClass={innerBg}
             firstName={firstName}
             lastName={lastName}
+            qrData={qrValue}
+            isReady={isReady}
           />
+          {isReady && (
+            <button
+              type="button"
+              onClick={handleDownload}
+              className="mt-4 w-full flex items-center justify-center gap-2 bg-[#D5F334] text-black font-semibold py-3 px-6 rounded-xl hover:brightness-110 transition-all duration-200 cursor-pointer"
+            >
+              <HiOutlineDownload size={20} />
+              Download Card
+            </button>
+          )}
         </div>
       </div>
     </div>
