@@ -37,13 +37,11 @@ export default function page({ }: Props) {
     phone.trim() !== "" &&
     instagram.trim() !== "";
 
-  // Build a readable text so scanning the QR shows all details clearly
-  const qrValue = [
-    `Name: ${firstName} ${lastName}`,
-    `Phone: ${phone}`,
-    `Email: ${email}`,
-    `Instagram: ${instagram}`,
-  ].join("\n");
+  // Build a redirect URL so scanning the QR opens the /found page
+  const redirectUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/found?name=${encodeURIComponent(firstName)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}&ig=${encodeURIComponent(instagram)}`
+      : "";
 
   const handleDownload = async () => {
     if (!cardRef.current || !isReady) return;
@@ -157,7 +155,7 @@ export default function page({ }: Props) {
             innerBgClass={innerBg}
             firstName={firstName}
             lastName={lastName}
-            qrData={qrValue}
+            qrData={redirectUrl}
             isReady={isReady}
           />
           {isReady && (
