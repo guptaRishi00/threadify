@@ -22,8 +22,8 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="bg-[#121432] w-72 h-[140vh] rounded-3xl flex flex-col py-12 overflow-hidden font-ubuntu">
-      <div className="px-10 mb-16">
+    <aside className="bg-[#121432] h-[126.5vh] w-72 rounded-3xl flex flex-col py-8 overflow-hidden font-ubuntu self-stretch">
+      <div className="px-8 mb-10">
         <Link href="/">
           <Image
             src="/logo.svg"
@@ -37,8 +37,8 @@ export default function Sidebar() {
       </div>
 
       <nav className="flex flex-col w-full">
-        <p className="px-10 text-white/40 text-sm font-light mb-6 tracking-wide">
-          Home
+        <p className="px-8 text-white/40 text-xs uppercase font-light mb-6 tracking-widest">
+          Menu
         </p>
 
         <div className="flex flex-col gap-3">
@@ -50,22 +50,22 @@ export default function Sidebar() {
                 key={item.name}
                 href={item.href}
                 className={`
-                  flex items-center gap-4 py-4 px-10 transition-all duration-300 group
+                  flex items-center gap-4 py-3.5 px-8 transition-all duration-300 group relative
                   ${isActive
-                    ? "bg-[#D5F334] text-black rounded-r-full mr-6"
-                    : "text-white hover:text-[#D5F334]"
+                    ? "bg-[#D5F334]/10 text-[#D5F334] border-l-[3px] border-[#D5F334]"
+                    : "text-white/60 hover:text-white hover:bg-white/5 border-l-[3px] border-transparent"
                   }
                 `}
               >
                 <item.icon
-                  size={26}
+                  size={22}
                   className={
                     isActive
-                      ? "text-black"
-                      : "text-white group-hover:text-[#D5F334]"
+                      ? "text-[#D5F334]"
+                      : "text-white/60 group-hover:text-white"
                   }
                 />
-                <span className="text-[17px] font-medium">{item.name}</span>
+                <span className="text-sm font-medium">{item.name}</span>
               </Link>
             );
           })}

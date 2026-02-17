@@ -16,11 +16,12 @@ const QrCard = forwardRef<HTMLDivElement, Props>(
     return (
       <div
         ref={ref}
-        className="bg-[#D5F334] w-full h-[50vh] lg:h-[75vh] rounded-b-3xl lg:rounded-b-none overflow-hidden"
+        className="bg-[#D5F334] w-full h-[50vh] lg:h-[75vh] rounded-3xl overflow-hidden"
       >
-        {/* Replace 'bg-black' with the dynamic prop */}
+        {/* Inner dark area */}
         <div
-          className={`${innerBgClass} w-full h-[76%] flex items-center justify-between p-4 lg:p-8 rounded-b-[40px] lg:rounded-b-[65px] transition-colors duration-500`}
+          style={{ background: innerBgClass }}
+          className="w-full h-[76%] flex items-center justify-between p-4 lg:p-8 rounded-b-[2.5rem] transition-all duration-500"
         >
           <div className="flex items-center justify-center lg:items-start w-full flex-col">
             <div className="flex items-center justify-between w-full mb-2">
@@ -55,10 +56,12 @@ const QrCard = forwardRef<HTMLDivElement, Props>(
                   </p>
                 </>
               ) : (
-                <div className="flex flex-col items-center gap-2 py-4">
-                  <TbScan size={40} className="text-[#D5F334]/40" />
-                  <p className="text-[#D5F334]/60 text-xs lg:text-sm text-center">
-                    Fill in all your details to<br />generate your QR code
+                <div className="flex flex-col items-center gap-3 py-6">
+                  <TbScan size={48} className="text-[#D5F334]/30" />
+                  <p className="text-[#D5F334]/50 text-sm lg:text-base text-center leading-relaxed">
+                    Fill in all your details to
+                    <br />
+                    generate your QR code
                   </p>
                 </div>
               )}
@@ -66,12 +69,14 @@ const QrCard = forwardRef<HTMLDivElement, Props>(
           </div>
         </div>
 
-        <div className="py-3 lg:py-6 px-4 lg:px-8 flex items-end justify-between">
+        <div className="py-3 lg:py-5 px-4 lg:px-8 flex items-end justify-between">
           <div className="flex flex-col items-start">
-            <p className="text-2xl lg:text-3xl font-bold text-black">
+            <p className="text-2xl lg:text-3xl font-bold text-black tracking-tight">
               {firstName}
             </p>
-            <p className="text-2xl lg:text-3xl text-black">{lastName}</p>
+            <p className="text-2xl lg:text-3xl text-black/70 tracking-tight">
+              {lastName}
+            </p>
           </div>
 
           <Image

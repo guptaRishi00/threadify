@@ -1,4 +1,3 @@
-import Default from "@/components/customize/Default";
 import ProfileHeader from "@/components/customize/ProfileHeader";
 import Sidebar from "@/components/customize/Sidebar";
 import Image from "next/image";
@@ -11,9 +10,9 @@ export default function CustomizeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col lg:flex-row p-4 lg:p-10 bg-[#0B0C1E] w-full min-h-screen items-start gap-5">
+    <div className="flex flex-col lg:flex-row p-4 lg:p-8 bg-[#0B0C1E] w-full min-h-screen items-start lg:items-stretch gap-4">
       {/* Mobile Header - visible only on mobile */}
-      <div className="flex lg:hidden items-center justify-between w-full px-2 py-4">
+      <div className="flex lg:hidden items-center justify-between w-full px-2 py-4 border-b border-white/10">
         <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#D5F334]">
           <Image
             src="https://images.unsplash.com/photo-1768489038118-353427798951?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -48,7 +47,6 @@ export default function CustomizeLayout({
         <div className="hidden lg:block">
           <ProfileHeader />
         </div>
-        <Default />
         {children}
       </div>
     </div>

@@ -1,14 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
-import { text } from "stream/consumers";
 
 const Footer = () => {
+  const router = useRouter();
+
+  const handleLogoClick = () => {
+    router.push("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <footer className="bg-[#0B0C1E] text-white font-ubuntu overflow-hidden">
@@ -21,7 +30,8 @@ const Footer = () => {
                   alt="Threadify"
                   width={300}
                   height={50}
-                  className="w-[220px] lg:w-[280px]"
+                  className="w-[220px] lg:w-[280px] cursor-pointer"
+                  onClick={handleLogoClick}
                 />
                 <p className="text-[16px] lg:text-[18px] font-light max-w-[300px] opacity-90 leading-relaxed">
                   Lorem ipsum dolor sit amet sed do eiusmod tempor
