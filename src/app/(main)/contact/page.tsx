@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { Headphones, Briefcase, Camera, Plus, Minus } from "lucide-react";
+import {
+  Headphones,
+  Briefcase,
+  Camera,
+  Plus,
+  Minus,
+  Loader2,
+} from "lucide-react";
 
 const faqData = [
   {
@@ -24,10 +31,50 @@ const faqData = [
 export default function Contact() {
   const [openIndex, setOpenIndex] = useState<number | null>(1);
 
+  // 1. Updated state to use "message" to match Apps Script
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbwJ36VElUqZ3npZFJYmbVGPJBmksh_A10DC1zP020DzWtDqznXImL_BLstqtGNmwZfXAg/exec";
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#0B0C1E] pt-10 pb-20 px-6 font-ubuntu">
       <section className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 my-32">
-        {/* TEXT SECTION: Appears first on mobile, but moved to the right (last) on desktop */}
         <div className="flex flex-col justify-center lg:order-last">
           <h1 className="text-white text-5xl lg:text-6xl font-bold mb-4">
             Get In <span className="text-[#D5F334]">Touch</span>
@@ -81,13 +128,20 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* FORM SECTION: Appears second on mobile, but stays on the left (first) on desktop */}
-        <div className="flex flex-col gap-10 lg:order-first">
+        {/* FORM SECTION */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-10 lg:order-first"
+        >
           <div className="flex flex-col items-start gap-4">
             <label className="text-[#D5F334] text-sm font-medium">Name</label>
             <input
+              name="name"
               type="text"
-              placeholder="Enter your name first"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
               className="w-full h-14 bg-white rounded-full px-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none"
             />
           </div>
@@ -97,7 +151,11 @@ export default function Contact() {
               Enter Email
             </label>
             <input
+              name="email"
               type="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Enter your email id"
               className="w-full h-14 bg-white rounded-full px-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none"
             />
@@ -105,21 +163,44 @@ export default function Contact() {
 
           <div className="flex flex-col items-start gap-4">
             <label className="text-[#D5F334] text-sm font-medium">
-              Describe
+              Message
             </label>
             <textarea
+              name="message" // Changed name to "message"
+              required
+              value={formData.message} // Changed value to formData.message
+              onChange={handleChange}
               placeholder="How can we help?"
               className="w-full h-40 bg-white rounded-[30px] p-8 text-[#0B0C1E] placeholder:text-gray-400 outline-none resize-none"
             />
           </div>
 
-          <button className="w-full h-14 bg-[#D5F334] rounded-full text-[#0B0C1E] font-bold text-lg hover:opacity-90 transition-opacity">
-            Submit
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="w-full h-14 bg-[#D5F334] rounded-full text-[#0B0C1E] font-bold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+          >
+            {status === "loading" ? (
+              <Loader2 className="animate-spin" size={20} />
+            ) : (
+              "Submit"
+            )}
           </button>
-        </div>
+
+          {status === "success" && (
+            <p className="text-[#D5F334] text-center font-medium">
+              Message sent successfully!
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-red-500 text-center font-medium">
+              Something went wrong. Please try again.
+            </p>
+          )}
+        </form>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section remains the same */}
       <section className="max-w-[1000px] mx-auto flex flex-col items-center">
         <div className="mb-6 rounded-full flex items-center justify-center p-[0.6px] bg-linear-to-r from-[#D5F334] to-[#121324]">
           <div className="bg-linear-to-r from-[#171829] to-[#121324] rounded-full px-6 py-2">
