@@ -178,7 +178,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full h-14 bg-[#D5F334] rounded-full text-[#0B0C1E] font-bold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            className="w-full cursor-pointer h-14 bg-[#D5F334] rounded-full text-[#0B0C1E] font-bold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
           >
             {status === "loading" ? (
               <Loader2 className="animate-spin" size={20} />
